@@ -1,38 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  /* background-image: url(https://images4.alphacoders.com/236/thumb-1920-236784.jpg);
+  background-color: #2d2d2d;
+  background-blend-mode: soft-light; */
+  min-height: 100vh;
+  background: #8a2387; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f27121,
+    #e94057,
+    #8a2387
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f27121,
+    #e94057,
+    #8a2387
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+  width: 500px;
+  display: block;
+  margin: auto;
+}
+
+.title {
   color: white;
+  text-align: center;
+  font-size: 35px;
+  font-family: "Londrina Solid", cursive;
 }
 
-.App-link {
-  color: #61dafb;
+.meme-template {
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+  font-family: "Londrina Solid", cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image-template {
+  width: 100%;
+  width: 500px;
+}
+
+.top-text,
+.bottom-text {
+  left: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+  color: black;
+  font-size: 35px;
+  text-shadow: 4px 4px 0 rgb(255, 253, 253);
+  width: 500px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.top-text {
+  top: 0;
+}
+
+.bottom-text {
+  bottom: 0;
+}
+
+.form-input {
+  width: 490px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
 }
