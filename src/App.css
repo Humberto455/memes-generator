@@ -43,10 +43,10 @@
   font-family: "Londrina Solid", cursive;
 }
 
-.image-template {
+/* .image-template {
   width: 100%;
   width: 500px;
-}
+} */
 
 .top-text,
 .bottom-text {
@@ -76,4 +76,15 @@
   margin-bottom: 10px;
   padding: 5px;
   border-radius: 5px;
+}
+.image-memes {
+  width: 200px;
+}
+.image {
+  width: 500px;
+  height: 500px;
+}
+
+.image-memes:hover {
+  filter: opacity(0.5);
 }

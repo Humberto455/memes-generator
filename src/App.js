@@ -10,7 +10,26 @@ class App extends React.Component {
     this.state = {
       top: "",
       bottom: "",
+      memes: [],
+      plantilla:
+        "https://i1.wp.com/www.sopitas.com/wp-content/uploads/2018/11/plantillas-memes-internet-47.jpg",
     };
+  }
+
+  componentDidMount() {
+    //Recibe el la URL de la API como paramtetro
+    fetch("https://api.imgflip.com/get_memes")
+      //Las promesas van encadenadas
+      .then((response) => response.json())
+      //Aqui ya se puede trabajar con la API
+      .then((memesJson) => {
+        this.setState({ memes: memesJson.data.memes });
+      })
+      //Para en caso de errores
+      .catch((error) => {
+        console.log(error);
+        console.log("Hubo un error");
+      });
   }
 
   handleChange = (event) => {
@@ -23,8 +42,23 @@ class App extends React.Component {
       <div className="App">
         <div className="container">
           <h1 className="title">¡Genera tu meme, es gratis!</h1>
-          <Meme top={this.state.top} bottom={this.state.bottom} />
+          <Meme
+            top={this.state.top}
+            bottom={this.state.bottom}
+            plantilla={this.state.plantilla}
+          />
           <MemeForm values={this.state} onChange={this.handleChange} />
+          {this.state.memes.map((item) => {
+            return (
+              <img
+                src={item.url}
+                className="image-memes"
+                onClick={() => {
+                  this.setState({ plantilla: item.url });
+                }}
+              />
+            );
+          })}
         </div>
       </div>
     );
@@ -35,11 +69,7 @@ class App extends React.Component {
 function Meme(props) {
   return (
     <div className="meme-template">
-      <img
-        className="image-template"
-        src="https://ih1.redbubble.net/image.1373073035.3205/mp,840x830,matte,f8f8f8,t-pad,1000x1000,f8f8f8.jpg"
-        alt="Plantilla"
-      />
+      <img src={props.plantilla} alt="PlantillaDeMeme" className="image" />
       <h2 className="top-text">{props.top}</h2>
       <h2 className="bottom-text">{props.bottom}</h2>
     </div>
